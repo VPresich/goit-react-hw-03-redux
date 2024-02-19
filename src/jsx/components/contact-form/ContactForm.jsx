@@ -1,5 +1,5 @@
 import { useId } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 
 import { INITIAL_CONTACT } from '../../auxiliary/constants';
 import { FeedbackSchema } from '../../auxiliary/feedback-schema';
@@ -11,6 +11,8 @@ import {
 } from '../../auxiliary/constants';
 
 import CustomButton from '../custom-button/CustomButton';
+import FormField from '../form-field/FormField';
+
 import styles from './ContactForm.module.css';
 
 const ContactForm = ({ onAddContact }) => {
@@ -30,34 +32,12 @@ const ContactForm = ({ onAddContact }) => {
     >
       <Form className={styles.contactform}>
         <div className={styles.info}>
-          <div>
-            <label className={styles.label} htmlFor={nameId}>
-              {LABEL_NAME}
-            </label>
-            <Field
-              className={styles.input}
-              id={nameId}
-              type="text"
-              name="name"
-            />
-            <span className={styles.error}>
-              <ErrorMessage name="name" as="span" />
-            </span>
-          </div>
-          <div>
-            <label className={styles.label} htmlFor={phoneId}>
-              {LABEL_PHONE}
-            </label>
-            <Field
-              className={styles.input}
-              id={phoneId}
-              type="tel"
-              name="number"
-            />
-            <span className={styles.error}>
-              <ErrorMessage name="number" as="span" />
-            </span>
-          </div>
+          <FormField id={nameId} type="text" name="name">
+            {LABEL_NAME}
+          </FormField>
+          <FormField id={phoneId} type="tel" name="number">
+            {LABEL_PHONE}
+          </FormField>
         </div>
         <CustomButton typeBtn="submit">{CAPTION_ADD}</CustomButton>
       </Form>
