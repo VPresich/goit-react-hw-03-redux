@@ -6,7 +6,6 @@ import styles from './SearchBox.module.css';
 
 const SearchBox = ({ children }) => {
   const value = useSelector(getFilter);
-  console.log('VALUE', value);
   const dispatch = useDispatch();
   const searchId = useId();
 

@@ -14,7 +14,7 @@ const ContactsList = () => {
     strFilter?.length === 0
       ? contacts
       : contacts.filter(contact =>
-          contact.name.toLowerCase().includes(strFilter.toLowerCase())
+          contact.name.toLowerCase().includes(strFilter.trim().toLowerCase())
         );
 
   return (
@@ -26,7 +26,7 @@ const ContactsList = () => {
           </li>
         ))
       ) : (
-        <div>No elements</div>
+        <div className={styles.text}>No contacts!</div>
       )}
     </ul>
   );
