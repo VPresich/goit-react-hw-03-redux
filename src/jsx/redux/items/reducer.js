@@ -1,15 +1,13 @@
+import { createReducer } from '@reduxjs/toolkit';
 import { defaultItemsState } from './constants';
 import { addItem, deleteItem } from './actions';
 
-export const itemsReducer = (state = defaultItemsState, action) => {
-  switch (action.type) {
-    case addItem.type:
+export const itemsReducer = createReducer(defaultItemsState, builder => {
+  builder
+    .addCase(addItem, (state, action) => {
       return [...state, action.payload];
-
-    case deleteItem.type:
+    })
+    .addCase(deleteItem, (state, action) => {
       return state.filter(task => task.id !== action.payload);
-
-    default:
-      return state;
-  }
-};
+    });
+});
