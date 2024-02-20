@@ -6,7 +6,6 @@ import styles from './ContactsList.module.css';
 const ContactsList = () => {
   const contacts = useSelector(getItems);
   const strFilter = useSelector(getFilter);
-  console.log('strFilter', strFilter);
 
   const filteredContacts =
     strFilter?.length === 0

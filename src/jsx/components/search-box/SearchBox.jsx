@@ -14,7 +14,7 @@ const SearchBox = ({ children }) => {
   };
 
   return (
-    <form className={styles.searchbox}>
+    <div className={styles.searchbox}>
       <label className={styles.label} htmlFor={searchId}>
         {children}
       </label>
@@ -25,7 +25,7 @@ const SearchBox = ({ children }) => {
         value={value}
         onChange={handleChangeFilter}
       />
-    </form>
+    </div>
   );
 };
 
