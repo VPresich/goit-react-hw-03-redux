@@ -5,9 +5,10 @@ import { addItem, deleteItem } from './actions';
 export const itemsReducer = createReducer(defaultItemsState, builder => {
   builder
     .addCase(addItem, (state, action) => {
-      return [...state, action.payload];
+      state.push(action.payload);
     })
     .addCase(deleteItem, (state, action) => {
-      return state.filter(task => task.id !== action.payload);
+      const index = state.findIndex(task => task.id === action.payload);
+      state.splice(index, 1);
     });
 });
