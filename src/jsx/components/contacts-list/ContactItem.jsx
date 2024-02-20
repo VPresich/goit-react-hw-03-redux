@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { deleteItem } from '../../redux/items/actions';
-
+import { deleteItem } from '../../redux/contactsSlice';
 import { FaUser, FaPhone } from 'react-icons/fa';
 import CustomButton from '../custom-button/CustomButton';
 import { CAPTION_DELETE } from '../../auxiliary/constants';

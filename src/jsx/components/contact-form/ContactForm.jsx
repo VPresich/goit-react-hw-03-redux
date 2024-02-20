@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { addItem } from '../../redux/items/actions';
+import { addItem } from '../../redux/contactsSlice';
 import { Formik, Form } from 'formik';
 import { INITIAL_CONTACT } from '../../auxiliary/constants';
 import { FeedbackSchema } from '../../auxiliary/feedback-schema';
