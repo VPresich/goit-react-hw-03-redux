@@ -1,11 +1,12 @@
-import { defaultItemsState, ADD_ITEM, DEL_ITEM } from './constants';
+import { defaultItemsState } from './constants';
+import { addItem, deleteItem } from './actions';
 
 export const itemsReducer = (state = defaultItemsState, action) => {
   switch (action.type) {
-    case ADD_ITEM:
+    case addItem.type:
       return [...state, action.payload];
 
-    case DEL_ITEM:
+    case deleteItem.type:
       return state.filter(task => task.id !== action.payload);
 
     default:

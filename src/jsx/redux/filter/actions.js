@@ -1,8 +1,4 @@
 import { SET_FILTER } from './constants';
+import { createAction } from '@reduxjs/toolkit';
 
-export const setFilter = value => {
-  return {
-    type: SET_FILTER,
-    payload: value,
-  };
-};
+export const setFilter = createAction(SET_FILTER);

@@ -1,8 +1,9 @@
-import { defaultFiltersState, SET_FILTER } from './constants';
+import { defaultFiltersState } from './constants';
+import { setFilter } from './actions';
 
 export const filtersReducer = (state = defaultFiltersState, action) => {
   switch (action.type) {
-    case SET_FILTER:
+    case setFilter.type:
       return { ...state, name: action.payload };
     default:
       return state;
