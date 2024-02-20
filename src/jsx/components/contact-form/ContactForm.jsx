@@ -1,6 +1,8 @@
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../redux/items/actions';
 import { useId } from 'react';
+import { nanoid } from 'nanoid';
 import { Formik, Form } from 'formik';
-
 import { INITIAL_CONTACT } from '../../auxiliary/constants';
 import { FeedbackSchema } from '../../auxiliary/feedback-schema';
 
@@ -15,12 +17,13 @@ import FormField from '../form-field/FormField';
 
 import styles from './ContactForm.module.css';
 
-const ContactForm = ({ onAddContact }) => {
+const ContactForm = () => {
   const nameId = useId();
   const phoneId = useId();
+  const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    onAddContact(values);
+    dispatch(addItem({ ...values, id: nanoid() }));
     actions.resetForm();
   };
 
@@ -39,7 +42,7 @@ const ContactForm = ({ onAddContact }) => {
             {LABEL_PHONE}
           </FormField>
         </div>
-        <CustomButton typeBtn="submit">{CAPTION_ADD}</CustomButton>
+        <CustomButton type="submit">{CAPTION_ADD}</CustomButton>
       </Form>
     </Formik>
   );

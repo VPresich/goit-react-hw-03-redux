@@ -1,8 +1,19 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { getFilter } from '../../redux/filter/selector';
+import { setFilter } from '../../redux/filter/actions';
 import { useId } from 'react';
 import styles from './SearchBox.module.css';
 
-const SearchBox = ({ value, onChange, children }) => {
+const SearchBox = ({ children }) => {
+  const value = useSelector(getFilter);
+  console.log('VALUE', value);
+  const dispatch = useDispatch();
   const searchId = useId();
+
+  const handleChangeFilter = event => {
+    dispatch(setFilter(event.target.value));
+  };
+
   return (
     <form className={styles.searchbox}>
       <label className={styles.label} htmlFor={searchId}>
@@ -13,7 +24,7 @@ const SearchBox = ({ value, onChange, children }) => {
         id={searchId}
         type="text"
         value={value}
-        onChange={onChange}
+        onChange={handleChangeFilter}
       />
     </form>
   );
