@@ -1,9 +1,9 @@
 import { ADD_ITEM, DEL_ITEM } from './constants';
-
-export const addItem = item => {
+import { nanoid } from 'nanoid';
+export const addItem = values => {
   return {
     type: ADD_ITEM,
-    payload: item,
+    payload: { ...values, id: nanoid() },
   };
 };
 

@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../redux/items/actions';
 import { useId } from 'react';
-import { nanoid } from 'nanoid';
 import { Formik, Form } from 'formik';
 import { INITIAL_CONTACT } from '../../auxiliary/constants';
 import { FeedbackSchema } from '../../auxiliary/feedback-schema';
@@ -23,7 +22,7 @@ const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(addItem({ ...values, id: nanoid() }));
+    dispatch(addItem(values));
     actions.resetForm();
   };
 
